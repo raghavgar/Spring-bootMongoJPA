@@ -20,6 +20,18 @@ public class Customer {
     private String name;
 
 
+    public Customer(String customerId, String name, String testingNewFieldWithoutInDB, Collection<Purchase> purchases) {
+        this.customerId = customerId;
+        this.name = name;
+        this.purchases = purchases;
+    }
+
+
+
+    public void setPurchases(Collection<Purchase> purchases) {
+        this.purchases = purchases;
+    }
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
     private Collection<Purchase> purchases = new ArrayList<>();
 
@@ -31,11 +43,7 @@ public class Customer {
         this.purchases = purchases;
     }
 
-    public Customer(String customerId, String name,  List<Purchase> purchases) {
-        this.customerId = customerId;
-        this.name = name;
-        this.purchases = purchases;
-    }
+
 
     public Customer() {
     }
